@@ -3,7 +3,7 @@
 :::{.callout-note}
 ## Website URL
 
-<span style="font-size:2em">[https://febse.github.io/econ2024/](https://febse.github.io/econ2024/)</span>
+<span style="font-size:2em">[https://febse.github.io/stat2024/](https://febse.github.io/stat2024/)</span>
 
 ![](figures/qrcode.png)
 
@@ -12,9 +12,8 @@
 
 ## Schedule
 
-1.  Tue 10:15-11:45 in room 303
-2.  Tue 12:15-13:45 in room 303
-3.  Tue 14:15-15:45 in room 303
+1.  Wed 9:30-11:00 in room 215
+2.  Wed 12:15-14:00 in room 215
 
 ## Grading
 
@@ -24,7 +23,7 @@ TBA
 
 All course materials for the exercise classes will be available in the GitHub repository:
 
-<https://github.com/febse/econ2024>
+<https://github.com/febse/stat2024>
 
 ## Software Setup
 
@@ -62,7 +61,7 @@ In the Repository URL field, paste the address of the course repository:
 Insert the following address in the Repository URL field:
 
 ```         
-https://github.com/febse/econ2024.git
+https://github.com/febse/stat2024.git
 ```
 
 the one shown in the screenshot is outdated.
@@ -103,7 +102,7 @@ To avoid this, you can roll back the file to its original state. Right-click on 
 In case it does not work, you can install the packages manually by running the following command in the R console:
 
 ```r
-install.packages(c("tidyverse", "broom", "patchwork", "GGally", "caret", "plotly"))
+install.packages(c("tidyverse", "broom"))
 ```
 
 
@@ -111,3 +110,5 @@ install.packages(c("tidyverse", "broom", "patchwork", "GGally", "caret", "plotly
 Optional: more on Quarto: <https://quarto.org/docs/guide/>
 
 Optional: a base R cheatsheet: <https://www.datacamp.com/cheat-sheet/getting-started-r>
+
+Optional: R for Data Science: <https://r4ds.hadley.nz/>
