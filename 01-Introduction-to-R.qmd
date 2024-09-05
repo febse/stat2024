@@ -1,8 +1,26 @@
 # Introduction to R
 
-During the first classes we discussed the basic structure of an R Markdown document and how we can mix `R` code and text to create documents.
+A quarto document is a pure text file that you can open in any text editor (e.g. Notepad, Emacs, Kate, etc.). It consists of two parts: the header at the top of the file. The header starts with three dashes on a separate line and ends with three dashes on a separate line. Between the dashes you can specify different options in a `yml` format such as the author and title of the document, but these will be generally irrelevant for our course and we will ignore them.
 
-A R Markdown document is a pure text file that you can open in any text editor (e.g. Notepad, Emacs, Kate, etc.). It consists of two parts: the header at the top of the file. The header starts with three dashes on a separate line and ends with three dashes on a separate line. Between the dashes you can specify different options in a `yml` format such as the author and title of the document, but these will be generally irrelevant for our course and we will ignore them.
+:::{.callout-note}
+## Do not open the R Markdown file in MS Word or LibreOffice
+
+MS Word and OpenOffice/LibreOffice are not simple text editors. If you open a R Markdown file in MS Word or LibreOffice, it will add formatting to the text and the file will no longer be a plain text file. This will cause problems when you try to compile the document.
+
+:::
+
+A lot of the work in R Studio can be done using keyboard shortcuts. This can speed up your workflow and make you more productive. 
+
+- `Ctrl+Enter`: Run the current line or selection
+- `Ctrl+Shift+Enter`: Run the current chunk
+- `Ctrl+Alt+i`: Insert a new R code chunk
+- `Alt + - (minus)`: Insert the assignment operator `<-`
+
+You can find more shortcuts and a concise overview of the elements of R Studio in the
+[R Studio Cheatsheet](https://posit.co/wp-content/uploads/2022/10/rstudio-ide-1.pdf).
+
+For a complete list of shortcuts, you can go to `Help` -\> `Keyboard Shortcuts Help`.
+:::
 
 In the body of the document we write code in code chunks that start with three backticks and end with three backticks. After the first sequence of backticks there is a language identifier which in our case will always be `r`.
 
@@ -14,9 +32,6 @@ To run a code chunk, find the green `Run` button on the right side of the chunk 
 ```{r}
 
 ```
-
-You can find more information and video tutorials about R Markdown [here](https://rmarkdown.rstudio.com/).
-
 
 :::{.callout-note}
 ## Keyboard Shortcuts
@@ -31,7 +46,7 @@ A lot of the work in R Studio can be done using keyboard shortcuts. This can spe
 You can find more shortcuts and a concise overview of the elements of R Studio in the
 [R Studio Cheatsheet](https://posit.co/wp-content/uploads/2022/10/rstudio-ide-1.pdf).
 
-For a complete list of shortcuts, you can go to `Help` -\> `Keyboard Shortcuts Help`.
+You can find the complete list of shortcuts under `Help` -\> `Keyboard Shortcuts Help`.
 :::
 
 
@@ -283,6 +298,7 @@ Let's write a function that takes two numbers and returns TRUE or FALSE dependin
 
 ```{r}
 is_even_sum <- function(x, y) {
+  # print((x + y) %% 2)
   (x + y) %% 2 == 0
 }
 
@@ -290,7 +306,7 @@ is_even_sum(2, 3)
 is_even_sum(2, 4)
 ```
 
-The `%%` operator is the modulo operator. It returns the remainder of the division of the first number by the second number.
+The `%%` operator is the modulo operator. It returns the remainder of the division of the first value by the second value.
 
 ```{r}
 2 %% 2
