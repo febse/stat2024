@@ -1,4 +1,4 @@
-# Descriptive Statistics
+# Descriptive Statistics with R
 
 ## Data Frames (Tibbles)
 
@@ -353,7 +353,7 @@ earnings %>%
 
 :::
 
-3. Group the data by `male` and compute the number of customers in each group, as well as the number of underweight and normal weight customers in each group. Additionally, compute the share of underweight and normal weight customers in each group. *Hint*: Use the `group_by` function and the `summarize` function. Don't forget to uncommend the code first (Ctrl+Shift+C). The `n()` function can be used to compute the number of observations in each group.
+3. Group the data by `male` and compute the number of customers in each group, as well as the number of underweight and normal weight customers in each group. Additionally, compute the share of underweight and normal weight customers in each group. *Hint*: Use the `group_by` function and the `summarize` function. Don't forget to uncomment the code first (Ctrl+Shift+C). The `n()` function can be used to compute the number of observations in each group.
 
 ```{r}
 earnings %>%

@@ -1,0 +1,54 @@
+# Introduction
+
+## What is Statistics?
+
+Statistics is the science of collecting, analyzing, and interpreting data. It is a branch of mathematics that deals with the collection, organization, analysis, interpretation, and presentation of data. Statistics is used in a wide range of fields, including business, economics, social sciences, engineering, and natural sciences.
+
+
+## Why Study it?
+
+Statistics is an essential tool for making informed decisions (under uncertainty) in virtually every field of study.
+
+- **Business**: Statistics is used to analyze market trends, evaluate the performance of a company, and make informed business decisions.
+- **Economics**: Statistics is used to analyze economic data, forecast economic trends, and evaluate the impact of economic policies.
+- **Social Sciences**: Statistics is used to analyze survey data, conduct experiments, and test hypotheses in social science research.
+- And many more...
+
+## What Will You Learn
+
+In this course, you will learn the fundamental concepts of statistics, including:
+
+- **Descriptive Statistics**: Summarizing and visualizing data using a programming language (R).
+- **Probability**: Understanding the basics of probability theory, the four basic formulas of combinatorics, the rules of probability, Bayes' theorem, and the law of large numbers.
+- **Inferential Statistics**: Making predictions and drawing conclusions from data.
+
+## Recommended Literature
+
+TODO
+
+## A Simple Example and a Reading Recommendation
+
+The garden of forking paths [in English](https://mycours.es/gamedesign2012/files/2012/08/The-Garden-of-Forking-Paths-Jorge-Luis-Borges-1941.pdf
+) or [in Bulgarian](https://chitanka.info/text/31581-gradinata-s-razklonjavashtite-se-pyteki).
+
+Imagine that we have a box in front of us that contains four balls. We know that there white balls and blue balls, but we don't know the exact number of each. We draw a ball from the box at _random_, record its color, and put it back in the box. We repeat this process three times and record the colors of the balls we draw.
+
+The data we collect is as follows:
+
+- Blue, White, Blue
+
+Based on this observations (data), we want to make an informed conclusion about the composition of the box (how many blue balls). In other words, what is the composition of the box that is most consistent with the data we have observed?
+
+There are five possible compositions of the box:
+
+1. 0 blue balls, 4 white balls
+2. 1 blue ball, 3 white balls
+3. 2 blue balls, 2 white balls
+4. 3 blue balls, 1 white ball
+5. 4 blue balls, 0 white balls
+
+Now we need to consider all possible observations for each composition of the box. Fortunately, we can already exclude two compositions because they are inconsistent with the data we have observed (which ones?).
+
+Let's start with the first possible composition: 1 blue ball, 3 white balls.
+
+As we drew the first ball, we could have ended up with either the 

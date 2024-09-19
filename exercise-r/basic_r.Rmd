@@ -4,6 +4,7 @@ library(tidyverse)
 install.packages(c("ottr", "testthat"))
 ```
 
+
 # R Basics
 
 **Question 1:** What is the value of $\sqrt{27.3 + 15/2}$? Assign this value to `ans.1`

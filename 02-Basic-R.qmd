@@ -1,4 +1,4 @@
-# Introduction to R
+# R Basics
 
 A quarto document is a pure text file that you can open in any text editor (e.g. Notepad, Emacs, Kate, etc.). It consists of two parts: the header at the top of the file. The header starts with three dashes on a separate line and ends with three dashes on a separate line. Between the dashes you can specify different options in a `yml` format such as the author and title of the document, but these will be generally irrelevant for our course and we will ignore them.
 

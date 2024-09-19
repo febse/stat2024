@@ -9,7 +9,10 @@ book:
     - index.qmd
     # - 00-Homework.qmd
     # - 00-Recommended-Literature.qmd
-    - 01-Introduction-to-R.qmd
+    - 01-Introduction.qmd
+    - 02-Basic-R.qmd
+    - 03-Descriptive-Statistics.qmd
+    
     # - 02-Descriptive-Statistics.qmd
     # - 03-Least-Squares.qmd
     # - 04a-Discrete-Distributions.qmd
