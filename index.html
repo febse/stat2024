@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-Introduction-to-R.html" rel="next">
+<link href="./01-Introduction.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -149,8 +149,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-Introduction-to-R.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span></a>
+  <a href="./01-Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-Basic-R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Basics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-Descriptive-Statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descriptive Statistics with R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -225,8 +237,16 @@ Website URL
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span style="font-size:2em"><a href="https://febse.github.io/stat2024/" class="uri">https://febse.github.io/stat2024/</a></span></p>
-<p><img src="figures/qrcode.png" class="img-fluid"></p>
+<p><a href="https://febse.github.io/stat2024/" style="font-size:2em; margin-left: 1em;">https://febse.github.io/stat2024/</a></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 <section id="schedule" class="level2">
@@ -243,7 +263,11 @@ Website URL
 <section id="github-repository" class="level2">
 <h2 class="anchored" data-anchor-id="github-repository">GitHub Repository</h2>
 <p>All course materials for the exercise classes will be available in the GitHub repository:</p>
-<p><a href="https://github.com/febse/stat2024" class="uri">https://github.com/febse/stat2024</a></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "https://febse.github.io/stat2024/"</code></pre>
+</div>
+</div>
 </section>
 <section id="software-setup" class="level2">
 <h2 class="anchored" data-anchor-id="software-setup">Software Setup</h2>
@@ -295,12 +319,12 @@ Repository URL
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Renv
+Install dependencies
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>To install the packages necessary for the course, click on the command line in the R console and type:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">restore</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will trigger the download and installation of all the dependencies. It can take some time, so be patient. You only need to do it once.</p>
 </div>
 </div>
@@ -337,7 +361,7 @@ Renv
 <li>In the exercise classes, we will use many functions from the <code>tidyverse</code> system and several other packages. Before accessing these packages’ functionality, you need to install them first. Find the R console in R studio and paste the following line on the command line. Press enter to run it and wait for the installation to complete. The <code>renv</code> package will take care of the installation of the packages in a separate environment, so you should’t worry about installing packages.</li>
 </ol>
 <p>In case it does not work, you can install the packages manually by running the following command in the R console:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"broom"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"broom"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Optional: more on Quarto: <a href="https://quarto.org/docs/guide/" class="uri">https://quarto.org/docs/guide/</a></p>
 <p>Optional: a base R cheatsheet: <a href="https://www.datacamp.com/cheat-sheet/getting-started-r" class="uri">https://www.datacamp.com/cheat-sheet/getting-started-r</a></p>
 <p>Optional: R for Data Science: <a href="https://r4ds.hadley.nz/" class="uri">https://r4ds.hadley.nz/</a></p>
@@ -771,8 +795,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-Introduction-to-R.html" class="pagination-link" aria-label="Introduction to R">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./01-Introduction.html" class="pagination-link" aria-label="Introduction">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

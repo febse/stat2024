@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – Basic Statistics</title>
+<title>1&nbsp; Introduction – Basic Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03-Descriptive-Statistics.html" rel="prev">
+<link href="./02-Basic-R.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -99,7 +81,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-Introduction.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,7 +114,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-Introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-Introduction.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
@@ -150,7 +132,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -159,15 +141,25 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-statistics" id="toc-what-is-statistics" class="nav-link active" data-scroll-target="#what-is-statistics"><span class="header-section-number">1.1</span> What is Statistics?</a></li>
+  <li><a href="#why-study-it" id="toc-why-study-it" class="nav-link" data-scroll-target="#why-study-it"><span class="header-section-number">1.2</span> Why Study it?</a></li>
+  <li><a href="#what-will-you-learn" id="toc-what-will-you-learn" class="nav-link" data-scroll-target="#what-will-you-learn"><span class="header-section-number">1.3</span> What Will You Learn</a></li>
+  <li><a href="#recommended-literature" id="toc-recommended-literature" class="nav-link" data-scroll-target="#recommended-literature"><span class="header-section-number">1.4</span> Recommended Literature</a></li>
+  <li><a href="#a-simple-example-and-a-reading-recommendation" id="toc-a-simple-example-and-a-reading-recommendation" class="nav-link" data-scroll-target="#a-simple-example-and-a-reading-recommendation"><span class="header-section-number">1.5</span> A Simple Example and a Reading Recommendation</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
 </div>
 
 
@@ -184,11 +176,56 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" role="list" style="display: none">
+<section id="what-is-statistics" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="what-is-statistics"><span class="header-section-number">1.1</span> What is Statistics?</h2>
+<p>Statistics is the science of collecting, analyzing, and interpreting data. It is a branch of mathematics that deals with the collection, organization, analysis, interpretation, and presentation of data. Statistics is used in a wide range of fields, including business, economics, social sciences, engineering, and natural sciences.</p>
+</section>
+<section id="why-study-it" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="why-study-it"><span class="header-section-number">1.2</span> Why Study it?</h2>
+<p>Statistics is an essential tool for making informed decisions (under uncertainty) in virtually every field of study.</p>
+<ul>
+<li><strong>Business</strong>: Statistics is used to analyze market trends, evaluate the performance of a company, and make informed business decisions.</li>
+<li><strong>Economics</strong>: Statistics is used to analyze economic data, forecast economic trends, and evaluate the impact of economic policies.</li>
+<li><strong>Social Sciences</strong>: Statistics is used to analyze survey data, conduct experiments, and test hypotheses in social science research.</li>
+<li>And many more…</li>
+</ul>
+</section>
+<section id="what-will-you-learn" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="what-will-you-learn"><span class="header-section-number">1.3</span> What Will You Learn</h2>
+<p>In this course, you will learn the fundamental concepts of statistics, including:</p>
+<ul>
+<li><strong>Descriptive Statistics</strong>: Summarizing and visualizing data using a programming language (R).</li>
+<li><strong>Probability</strong>: Understanding the basics of probability theory, the four basic formulas of combinatorics, the rules of probability, Bayes’ theorem, and the law of large numbers.</li>
+<li><strong>Inferential Statistics</strong>: Making predictions and drawing conclusions from data.</li>
+</ul>
+</section>
+<section id="recommended-literature" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="recommended-literature"><span class="header-section-number">1.4</span> Recommended Literature</h2>
+<p>TODO</p>
+</section>
+<section id="a-simple-example-and-a-reading-recommendation" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="a-simple-example-and-a-reading-recommendation"><span class="header-section-number">1.5</span> A Simple Example and a Reading Recommendation</h2>
+<p>The garden of forking paths <a href="https://mycours.es/gamedesign2012/files/2012/08/The-Garden-of-Forking-Paths-Jorge-Luis-Borges-1941.pdf">in English</a> or <a href="https://chitanka.info/text/31581-gradinata-s-razklonjavashtite-se-pyteki">in Bulgarian</a>.</p>
+<p>Imagine that we have a box in front of us that contains four balls. We know that there white balls and blue balls, but we don’t know the exact number of each. We draw a ball from the box at <em>random</em>, record its color, and put it back in the box. We repeat this process three times and record the colors of the balls we draw.</p>
+<p>The data we collect is as follows:</p>
+<ul>
+<li>Blue, White, Blue</li>
+</ul>
+<p>Based on this observations (data), we want to make an informed conclusion about the composition of the box (how many blue balls). In other words, what is the composition of the box that is most consistent with the data we have observed?</p>
+<p>There are five possible compositions of the box:</p>
+<ol type="1">
+<li>0 blue balls, 4 white balls</li>
+<li>1 blue ball, 3 white balls</li>
+<li>2 blue balls, 2 white balls</li>
+<li>3 blue balls, 1 white ball</li>
+<li>4 blue balls, 0 white balls</li>
+</ol>
+<p>Now we need to consider all possible observations for each composition of the box. Fortunately, we can already exclude two compositions because they are inconsistent with the data we have observed (which ones?).</p>
+<p>Let’s start with the first possible composition: 1 blue ball, 3 white balls.</p>
+<p>As we drew the first ball, we could have ended up with either the</p>
 
-</div>
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -613,11 +650,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-Descriptive-Statistics.html" class="pagination-link" aria-label="Descriptive Statistics with R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Descriptive Statistics with R</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="General Information">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">General Information</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./02-Basic-R.html" class="pagination-link" aria-label="R Basics">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">R Basics</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
