@@ -52,3 +52,4 @@ Now we need to consider all possible observations for each composition of the bo
 Let's start with the first possible composition: 1 blue ball, 3 white balls.
 
 As we drew the first ball, we could have ended up with either the 
+
