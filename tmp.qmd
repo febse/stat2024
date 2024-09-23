@@ -136,8 +136,7 @@ draw_garden <- function(n, blue, smpl) {
     positions_lst <- sapply(1:sn, function(x) (1:(n^x)) / n^(x-1))
     positions <- unlist(positions_lst)
 
-    d <- tibble(
-        
+    d <- tibble(        
         position = positions,
         draw = rep(
           1:sn,
@@ -149,7 +148,8 @@ draw_garden <- function(n, blue, smpl) {
           ) %>% 
            rep(., 
             times = sum(n^(0:(sn-1)))
-           )
+           ),
+        pos_char = as.character(positions)
     )
 
     lines_lst <- lapply(
@@ -160,17 +160,55 @@ draw_garden <- function(n, blue, smpl) {
         y = s,
         yend = s + 1,
         draw = s,
-        fill = rep(
-          c("b", "w"),
-          times = c(blue, n - blue)
-          ) %>% 
-           rep(., times = n^s),
-        visible = (fill != smpl[s])
       )
     )
     lines_len <- sapply(lines_lst, nrow)
 
     lines_dt <- bind_rows(lines_lst) %>%
+      left_join(
+        d %>% 
+          select(draw, position, fill) %>%
+          rename(fill_start = fill),
+        by = c("draw" = "draw", "x" = "position")
+      ) %>%
+      left_join(
+        d %>% 
+          mutate(
+            draw = draw - 1
+          ) %>%
+          select(draw, position, fill) %>%
+          rename(fill_end = fill),
+        by = c("draw" = "draw", "xend" = "position")
+      ) %>%
+      mutate(
+        fill_smpl = smpl[draw],
+        fill_smpl_next = smpl[draw + 1],
+        visible = ifelse(fill_start == fill_smpl & fill_end == fill_smpl_next, 1, 0)
+      )
+
+    lines_dt <- lines_dt %>%
+      left_join(
+        lines_dt %>%
+          select(draw, visible, xend) %>%
+          rename(parent_visible = visible) %>%
+          mutate(
+            draw = draw + 1
+          ),
+        by = c("draw" = "draw", "x" = "xend")
+      ) %>%
+      mutate(
+        visible = ifelse(
+          is.na(parent_visible), 
+          visible, 
+          ifelse(
+            parent_visible == 0, 
+            0,
+            visible
+          )
+        ),
+      )
+
+    lines_dt <- lines_dt %>%
       mutate(
         x = x - .5 / n^(draw - 1),
         xend = xend - .5 / n^(draw)
@@ -184,12 +222,13 @@ draw_garden <- function(n, blue, smpl) {
             position = position - denominator
         )
 
-    d %>% 
+    plt <- d %>% 
       ggplot(aes(x = position, y = draw)) +
       geom_segment(data  = lines_dt,
                    aes(x = x, xend = xend,
                        y = y, yend = yend,
-                       alpha = visible %>% as.character()),
+                       alpha = visible %>% as.character()
+                       ),
                    size  = 1/3) +
       geom_point(aes(fill = fill),
                   shape = 21, size = 4) +
@@ -200,11 +239,16 @@ draw_garden <- function(n, blue, smpl) {
       theme(panel.grid      = element_blank(),
               legend.position = "none") + 
       coord_polar()
+
+    plot(plt)
+    return(list(d, lines_dt))
 }
 ```
 
 ```{r}
-draw_garden(n = 4, blue=1, smpl=c("b", "w", "b"))
+out <- draw_garden(n = 4, blue=2, smpl=c("b", "w", "b", "w"))
+lines_dt_out <- out[[2]]
+dt_out <- out[[1]]
 ```
 
 ```{r}
@@ -219,15 +263,21 @@ lines_1
 
 ```{r}
 
-tm <- expand_grid(
-  draw = 1:3,
-  
-  x = paste0(rep(c("b", "w"), c(1, 3)), 1:4),
-  
-  pos = 1:3,
-  fill = 1:3
+tm <- tibble(
+  elid = paste0(rep(c("b", "w"), c(1, 3)), 1:4),
+  draw = 1:3
 )
 
-nrow(tm)
+tm
+```
+
+```{r}
+smpl <- c("b", "w", "b")
+
+tmp <- dt_out %>%
+  mutate(
+    smpl_fill = smpl[draw],
+    visible = fill == smpl_fill
+  )
 ```
 
