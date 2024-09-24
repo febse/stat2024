@@ -186,27 +186,30 @@ draw_garden <- function(n, blue, smpl) {
         visible = ifelse(fill_start == fill_smpl & fill_end == fill_smpl_next, 1, 0)
       )
 
-    lines_dt <- lines_dt %>%
-      left_join(
-        lines_dt %>%
-          select(draw, visible, xend) %>%
-          rename(parent_visible = visible) %>%
-          mutate(
-            draw = draw + 1
+    for (i in 1:(sn - 2)) {
+      lines_dt <- lines_dt %>%
+        left_join(
+          lines_dt %>%
+            select(draw, visible, xend) %>%
+            rename(parent_visible = visible) %>%
+            mutate(
+              draw = draw + i
+            ),
+          by = c("draw" = "draw", "x" = "xend")
+        ) %>%
+        mutate(
+          visible = ifelse(
+            is.na(parent_visible), 
+            visible, 
+            ifelse(
+              parent_visible == 0, 
+              0,
+              visible
+            )
           ),
-        by = c("draw" = "draw", "x" = "xend")
-      ) %>%
-      mutate(
-        visible = ifelse(
-          is.na(parent_visible), 
-          visible, 
-          ifelse(
-            parent_visible == 0, 
-            0,
-            visible
-          )
-        ),
-      )
+        ) %>%
+        select(-parent_visible)
+    }
 
     lines_dt <- lines_dt %>%
       mutate(
@@ -246,13 +249,13 @@ draw_garden <- function(n, blue, smpl) {
 ```
 
 ```{r}
-out <- draw_garden(n = 4, blue=2, smpl=c("b", "w", "b", "w"))
+out <- draw_garden(n = 5, blue=2, smpl=c("b", "w", "b", "b"))
 lines_dt_out <- out[[2]]
 dt_out <- out[[1]]
 ```
 
 ```{r}
-lines_1 <-  tibble(
+lines_1 <- tibble(
     x = rep((1:n), each = n),
     xend = ((1:n^2) / n),
     y = 1,
@@ -280,4 +283,3 @@ tmp <- dt_out %>%
     visible = fill == smpl_fill
   )
 ```
-
