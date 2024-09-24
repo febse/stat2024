@@ -8,133 +8,14 @@ library(tidyverse)
 
 
 ```{r}
-d <- tibble(
-  position = c((1:4^1) / 4^0, 
-                      (1:4^2) / 4^1, 
-                      (1:4^3) / 4^2),
-         draw     = rep(1:3, times = c(4^1, 4^2, 4^3)),
-         fill     = rep(c("b", "w"), times = c(1, 3)) %>% 
-           rep(., times = c(4^0 + 4^1 + 4^2))
-    )
-
-lines_1 <-  tibble(
-  x = rep((1:4), each = 4),
-         xend = ((1:4^2) / 4),
-         y    = 1,
-         yend = 2)
-
-lines_2 <- tibble(
-  x    = rep(((1:4^2) / 4), each = 4),
-         xend = (1:4^3) / (4^2),
-         y    = 2,
-         yend = 3
-         )
-
-d <- d %>% 
-  mutate(denominator = ifelse(draw == 1, .5,
-                              ifelse(draw == 2, .5 / 4,
-                                     .5 / 4^2))) %>% 
-  mutate(position    = position - denominator)
-
-lines_1 <- lines_1 %>% 
-  mutate(
-    x    = x - .5,
-         xend = xend - .5 / 4^1
-  )
-
-lines_2 <- lines_2 %>%
-  mutate(
-    x    = x - .5 / 4^1,
-         xend = xend - .5 / 4^2)
-```
-
-```{r}
-d %>% 
-  ggplot(aes(x = position, y = draw)) +
-  geom_segment(data  = lines_1,
-               aes(x = x, xend = xend,
-                   y = y, yend = yend),
-               size  = 1/3) +
-  geom_segment(data  = lines_2,
-               aes(x = x, xend = xend,
-                   y = y, yend = yend),
-               size  = 1/3) +
-  geom_point(aes(fill = fill),
-             shape = 21, size = 4) +
-  scale_fill_manual(values  = c("navy", "white")) +
-  scale_x_continuous(NULL, limits = c(0, 4), breaks = NULL) +
-  scale_y_continuous(NULL, limits = c(0.75, 3), breaks = NULL) +
-  theme(panel.grid      = element_blank(),
-        legend.position = "none") +
-  coord_polar()
-```
-
-```{r}
-lines_1 <-
-  lines_1 %>% 
-  mutate(remain = c(rep(0:1, times = c(1, 3)),
-                    rep(0,   times = 4 * 3)))
-
-lines_2 <-
-  lines_2 %>% 
-  mutate(remain = c(rep(0,   times = 4),
-                    rep(1:0, times = c(1, 3)) %>% 
-                      rep(., times = 3),
-                    rep(0,   times = 12 * 4)))
-
-d <-
-  d %>% 
-  mutate(remain = c(rep(1:0, times = c(1, 3)),
-                    rep(0:1, times = c(1, 3)),
-                    rep(0,   times = 4 * 4),
-                    rep(1:0, times = c(1, 3)) %>% 
-                      rep(., times = 3),
-                    rep(0,   times = 12 * 4))) 
-
-# finally, the plot:
-d %>% 
-  ggplot(aes(x = position, y = draw)) +
-  geom_segment(data = lines_1,
-               aes(
-                 x = x, xend = xend,
-                 y = y, yend = yend,
-                 alpha = remain %>% as.character()),
-                size  = 1/3
-               ) +
-  geom_segment(data  = lines_2,
-               aes(x = x, xend = xend,
-                   y = y, yend = yend,
-                   alpha = remain %>% as.character()),
-               size  = 1/3) +
-  geom_point(aes(fill = fill, alpha = remain %>% as.character()),
-             shape = 21, size = 4) +
-  # it's the alpha parameter that makes elements semitransparent
-  scale_alpha_manual(values = c(1/10, 1)) +
-  scale_fill_manual(values  = c("navy", "white")) +
-  scale_x_continuous(NULL, limits = c(0, 4), breaks = NULL) +
-  scale_y_continuous(NULL, limits = c(0.75, 3), breaks = NULL) +
-  theme(panel.grid      = element_blank(),
-        legend.position = "none") + 
-  coord_polar()
-```
-
-
-```{r}
-n <- 4
-sn <- 3
-c(
-  (1:n^1) / n^0,
-  (1:n^2) / n^1, 
-  (1:n^3) / n^2
-)
-```
-
-```{r}
 draw_garden <- function(n, blue, smpl) {
     sn <- length(smpl)
 
     positions_lst <- sapply(1:sn, function(x) (1:(n^x)) / n^(x-1))
     positions <- unlist(positions_lst)
+    parents_lst <- sapply(1:sn, function(x) rep(1:n, each = n^(x-1)))
+    parents <- unlist(parents_lst)
+    print(parents_lst)
 
     d <- tibble(        
         position = positions,
@@ -149,6 +30,7 @@ draw_garden <- function(n, blue, smpl) {
            rep(., 
             times = sum(n^(0:(sn-1)))
            ),
+        parent = parents,
         pos_char = as.character(positions)
     )
 
@@ -249,37 +131,7 @@ draw_garden <- function(n, blue, smpl) {
 ```
 
 ```{r}
-out <- draw_garden(n = 5, blue=2, smpl=c("b", "w", "b", "b"))
+out <- draw_garden(n = 4, blue=1, smpl=c("b", "w", "b"))
 lines_dt_out <- out[[2]]
 dt_out <- out[[1]]
-```
-
-```{r}
-lines_1 <- tibble(
-    x = rep((1:n), each = n),
-    xend = ((1:n^2) / n),
-    y = 1,
-    yend = 2
-    )
-lines_1
-```
-
-```{r}
-
-tm <- tibble(
-  elid = paste0(rep(c("b", "w"), c(1, 3)), 1:4),
-  draw = 1:3
-)
-
-tm
-```
-
-```{r}
-smpl <- c("b", "w", "b")
-
-tmp <- dt_out %>%
-  mutate(
-    smpl_fill = smpl[draw],
-    visible = fill == smpl_fill
-  )
 ```
