@@ -45,7 +45,7 @@ draw_garden <- function(n, blue, smpl) {
       )
     )
     lines_len <- sapply(lines_lst, nrow)
-
+    
     lines_dt <- bind_rows(lines_lst) %>%
       left_join(
         d %>% 

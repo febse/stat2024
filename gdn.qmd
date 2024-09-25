@@ -1,0 +1,139 @@
+---
+title: "Untitled"
+---
+
+
+
+```{ojs}
+//| echo: false
+gardenOfForkingData()
+```
+
+```{ojs}
+//| echo: false
+viewof evidenceSequence = slider({
+  min: 0, 
+  max: 4, 
+  step: 1, 
+  value: 3, 
+  title: "sequence of draws ",
+})
+```
+
+```{ojs}
+viewof conjecture_input = Inputs.checkbox(["blue", "white", "white"], {label: "Evidence"})
+conjectures = [conjecture_input.map((c, i) => c == "blue" ? 1 : 0)]
+```
+
+```{ojs}
+viewof evidenceInput = Inputs.checkbox(["blue", "white", "white"], {label: "Evidence"})
+evidence = evidenceInput.map((c, i) => c == "blue" ? 1 : 0)
+```
+
+```{ojs}
+//| echo: false
+gardenOfForkingData = function() {
+  let numberOfDraws = 3;
+  let ctx = DOM.context2d(800, 450);    
+  let conjectureSize = conjectures[0].length;
+  let layers = new Array(numberOfDraws);
+  layers.fill(0);
+  let radius = 6;
+  const Y = 370;
+  let cY = 250;
+  let cX = 400;
+  let layerCenters = new Array(numberOfDraws + 1);
+  let layerPaths = [];
+  for(let i = 0; i < numberOfDraws + 1; i++) {
+    layerCenters[i] = [];
+    layerPaths[i] = new Array(conjectureSize);
+  }
+  layerPaths[layerPaths.length] = [];
+  layerPaths[0].fill(true)
+  layerCenters[0].push({x: cX, y: Y + 20});
+  layers.forEach((layer, l) => {
+    let layerConjectures = Math.pow(conjectures[0].length, l);
+    let layerElements = conjectures[0].slice();
+    for(let i = 0; i < layerConjectures - 1; i++) {
+      layerElements.push(undefined);
+      conjectures[0].forEach(slot => layerElements.push(slot));
+    }
+    
+    let layerRadius = (2 + (l/layerConjectures))*(radius + 2)*layerConjectures + 50;
+    cY = l == 0 ? Y + 20 : Y;
+    let stepAngle = (Math.PI)/(Math.floor(layerElements.length) + 1);
+    layerElements.forEach((slot, i) => {
+      if(slot === undefined) {
+        return;
+      }
+      
+      if(evidence[l] == slot && layerPaths[l][i]) {
+        let offset = (i - (Math.floor(i/(conjectureSize + 1))))*(conjectureSize + 1)
+        for(let j = 0; j < conjectureSize; j++) {
+          layerPaths[l + 1][offset + j] = true;
+        }
+      }
+      
+      let evidenceApplies = evidenceSequence > l && evidence[l] == slot && layerPaths[l][i];
+      ctx.strokeStyle = evidenceApplies ? "black" : "gray";
+      ctx.lineWidth = evidenceApplies ? 2 : 1;
+      ctx.fillStyle = slot ? "lightblue" : "white"
+      ctx.beginPath();
+
+      let angle = Math.PI - (i + 1)*stepAngle;
+      let x = cX - layerRadius*Math.cos(Math.PI - angle);
+      let y = cY - Math.sqrt(Math.pow(layerRadius, 2) - Math.pow(x - cX, 2));
+      layerCenters[l + 1].push({x: x, y: y}); 
+      ctx.arc(x, y, radius, 0, Math.PI * 2, true);    
+      
+      let layerElementCenter = layerCenters[l][Math.floor(i/(conjectureSize + 1))]
+      let alpha = (layerElementCenter.y - y)/(layerElementCenter.x - x);
+      let alphaLow = layerElementCenter.y - y < 0 ? -1 : 1;
+      let beta = y - alpha*x;
+      let xOffset = (alpha*alphaLow < 0 ? 1 : -1) * (Math.abs((radius + 2) * (1/Math.sqrt(1 + alpha*alpha))));
+      let layerCenterLineX = layerElementCenter.x + xOffset;
+      let currentArcLineX =  x - xOffset      
+      ctx.moveTo(layerCenterLineX , alpha*layerCenterLineX + beta);
+      ctx.lineTo(currentArcLineX , alpha*currentArcLineX + beta);
+
+      ctx.fill();
+      ctx.stroke();
+  });
+
+  });
+  return ctx.canvas;
+}
+
+
+
+inlineDraw = function(data, width = 70) {
+   let ctx = DOM.context2d(width, 20);    
+    let r = 5;
+  data.forEach((d, i) => {
+      ctx.strokeStyle = "gray";
+      ctx.lineWidth = 1;
+      ctx.fillStyle = d ? "lightblue" : "white"
+      ctx.beginPath();
+      ctx.arc(2*r + i*5*r, r + 4, r, 0, Math.PI * 2, true);    
+      ctx.fill();
+      ctx.stroke();
+  });
+  return ctx.canvas;
+}
+
+import {slider} from "@jashkenas/inputs";
+```
+
+conjecture = function({blue = 1, white = 3}) {
+    let slots = new Array(blue + white);
+    slots.fill(0);
+    Array.from(Array(blue).keys()).forEach(blue => {
+        let blueSlot;
+        do {
+            blueSlot = Math.floor(Math.random() * slots.length);
+        } while (slots[blueSlot] === 1)
+        slots[blueSlot] = 1;
+    }
+    );
+    return slots;
+}

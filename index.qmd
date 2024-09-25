@@ -1,27 +1,11 @@
----
-execute: 
-  echo: false
----
-
-```{r setup}
-library(qrcode)
-library(yaml)
-
-cs <- yaml.load_file("settings.yml") 
-```
-
 # General Information {.unnumbered}
 
 ::: callout-note
 ## Website URL
 
-[`r cs$url`](`{r} cs$url`){style="font-size:2em; margin-left: 1em;"}
+[<https://febse.github.io/stat2024/>]{style="font-size:2em"}
 
-
-```{r}
-qr_code(cs$url) |>
-    plot()
-```
+![](figures/qrcode.png)
 :::
 
 ## Schedule
@@ -37,9 +21,7 @@ TBA
 
 All course materials for the exercise classes will be available in the GitHub repository:
 
-```{r}
-cs$url
-```
+<https://github.com/febse/stat2024>
 
 ## Software Setup
 
@@ -77,7 +59,7 @@ In the Repository URL field, paste the address of the course repository:
 Insert the following address in the Repository URL field:
 
 ```         
-`r cs$githubHttps`
+https://github.com/febse/stat2024.git
 ```
 
 the one shown in the screenshot is outdated.
@@ -86,7 +68,7 @@ the one shown in the screenshot is outdated.
 ![Paste the git repository address](figures/RStudio_new_project_4.png) Click on the Create Project button and wait for git R studio to clone the repository and open the project.
 
 ::: callout-caution
-## Install dependencies
+## Renv
 
 To install the packages necessary for the course, click on the command line in the R console and type:
 
