@@ -23,3 +23,11 @@ results
 Experiment -> unique outcome
 Sample space should be exhaustive and mutually exclusive (if not, we could not assign a single point in the space to an outcome)
 
+```{r}
+y <- list(
+  A = c("A", "B", "C"), 
+  B = c("C", "E", "F")
+)
+
+ggVennDiagram(y, label_alpha = 0, show_intersection_label = TRUE)
+```
