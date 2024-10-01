@@ -1,9 +1,10 @@
-# General Information {.unnumbered}
+# Setup {.unnumbered}
 
 ```{python}
 #| echo: false
 
 import yaml
+from utils.qr import create_qr_code
 from IPython.display import Markdown
 
 # Load the YAML file
@@ -11,12 +12,15 @@ with open('settings.yml', 'r') as file:
     cs = yaml.safe_load(file)
 ```
 
-::: callout-note
+:::{.callout-note}
 ## Website URL
 
-[<https://febse.github.io/stat2024/>]{style="font-size:2em"}
+[`{python} cs['url']`](`{python} cs['url']`){style="font-size:2em; margin-left: 1em;"}
 
-![](figures/qrcode.png)
+```{python}
+#| echo: false
+display(create_qr_code(cs['url']))
+```
 :::
 
 ## Schedule
@@ -34,22 +38,52 @@ All course materials for the exercise classes will be available in the GitHub re
 
 [`{python} cs['github']`](`{python} cs['github']`)
 
-## Software Setup
+## GitHub Account
 
-The exercise classes require a minimal software setup:
+Open a GitHub account at <https://github.com/signup>. While you don't need an account to download the course materials, you will need one to receive and submit assignments (this will be explained in details during the exercise classes). You can also apply for the GitHub student benefits at <https://education.github.com/benefits>. If approved you can receive free access to the GitHub Pro plan and to GitHub Copilot, an AI tool that helps you write code.
 
-1.  Install Git for you operating system from [https://git-scm.com/downloads/](https://git-scm.com/downloads).
 
-2.  Open a GitHub account at <https://github.com/signup>. While you don't need an account to download the course materials, you will need one to receive and submit your assignments (this will be explained in details during the exercise classes). You can also apply for the GitHub student benefits at <https://education.github.com/benefits>. If approved you can receive free access to the GitHub Pro plan and to GitHub Copilot, an AI tool that helps you write code.
+## Google Account
 
-3. Install Visual Studio from [https://code.visualstudio.com/](https://code.visualstudio.com/)
+We will be using Python through Jupyter notebooks in the exercise classes. The recommended way to work on the exercises is to use Google Colab, a cloud service that allows you to run Python code in the browser (and includes a generous free tier). You will need a Google account to use Google Colab. If you don't have one, you can create one at <https://accounts.google.com/signup>.
+
+## Local Software Setup (Optional)
+
+The recommended way to run the notebooks is Google Colab. However, if you prefer to work locally, you will need to install a recent version of Python (3.7 or later) and the dependencies listed in the `environment.yml` file in the GitHub repository.
+
+:::{.callout-note collapsed="true"}
+## Windows: Using Installers
+
+1. Install Git for you operating system from [https://git-scm.com/downloads/](https://git-scm.com/downloads).
+
+3. Install Visual Studio Code (VSC) from [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
 4. Install `miniconda` from [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
 
-5.  **The following steps depend on git being installed**. Open VSC and press `Ctrl+Shift+P` to open the command palette. Type `Git: Clone` and press enter. Paste the address of the course repository:
+:::
 
-    `{python} cs['githubHttps']`
 
-    in the field and press enter. Choose a folder where you want to clone (basically this will copy the files from GitHub) the repository and press enter.
+:::{.callout-note collapsed=true}
+## Windows: Using Chocolatey
 
-6. 
+1. Click on the Windows start button and type `cmd`. Right-click on the `Command Prompt` and select `Run as administrator`.
+2. Copy and paste the following command and press enter:
+
+    ```{cmd}
+    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+    ```
+3. Close the `Command Prompt` and open it again as administrator.
+4. Copy and paste the following command and press enter:
+
+    ```{cmd}
+    choco install git vscode miniconda3
+    refreshenv
+    ```
+:::
+
+Open the command promt (cmd) and type
+
+```{cmd}
+%USERPROFILE%\miniconda3\Scripts\conda.exe env create -f environment.yml
+```
+
