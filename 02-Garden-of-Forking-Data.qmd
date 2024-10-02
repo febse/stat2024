@@ -3,7 +3,6 @@ title: "Untitled"
 ---
 
 
-
 ```{ojs}
 //| echo: false
 gardenOfForkingData()

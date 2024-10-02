@@ -86,4 +86,3 @@ Open the command promt (cmd) and type
 ```{cmd}
 %USERPROFILE%\miniconda3\Scripts\conda.exe env create -f environment.yml
 ```
-
