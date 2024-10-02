@@ -1,6 +1,7 @@
 project:
   type: book
-  
+  output-dir: _site
+
 book:
   title: "Basic Statistics"
   author: "Boyko Amarov"
