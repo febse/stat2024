@@ -1,6 +1,4 @@
----
-title: "Untitled"
----
+# The Garden of Forking Data
 
 
 ```{ojs}
@@ -20,11 +18,13 @@ viewof evidenceSequence = slider({
 ```
 
 ```{ojs}
-viewof conjecture_input = Inputs.checkbox(["blue", "white", "white"], {label: "Evidence"})
+//| echo: false
+viewof conjecture_input = Inputs.checkbox(["blue", "blue", "blue", "blue"], {label: "Evidence"})
 conjectures = [conjecture_input.map((c, i) => c == "blue" ? 1 : 0)]
 ```
 
 ```{ojs}
+//| echo: false
 viewof evidenceInput = Inputs.checkbox(["blue", "white", "white"], {label: "Evidence"})
 evidence = evidenceInput.map((c, i) => c == "blue" ? 1 : 0)
 ```
