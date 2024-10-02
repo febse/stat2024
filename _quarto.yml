@@ -7,26 +7,6 @@ book:
   date: "10/01/2024"
   chapters:
     - index.qmd
-    # - 00-Homework.qmd
-    # - 00-Recommended-Literature.qmd
-    # - 01-Introduction.qmd
-    # - 02-Basic-R.qmd
-    # - 03-Descriptive-Statistics.qmd
-    
-    # - 02-Descriptive-Statistics.qmd
-    # - 03-Least-Squares.qmd
-    # - 04a-Discrete-Distributions.qmd
-    # - 04b-Continuous-Distributions.qmd
-    # - 05-One-Way-ANOVA.qmd
-    # - 06-Simulation.qmd
-    # - 07-Multiple-Regression.qmd
-    # - 08-Interactions.qmd
-    # - lecture_problems.qmd
-    # - 00-Homework-Instructions.qmd  
-    # - 02a-Continuous-Distributions.qmd
-    # - 03-Simple-Linear-Model.qmd
-    # - 04-Simple-ANOVA.qmd
-    # - 05-Hypothesis-Testing-and-CI.qmd
     - references.qmd
 
 bibliography: references.bib

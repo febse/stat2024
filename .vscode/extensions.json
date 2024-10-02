@@ -1,9 +1,11 @@
 {
     "recommendations": [
-        "maciejdems.add-to-gitignore",
-        "REditorSupport.r",
-        "RDebugger.r-debugger",
-        "Mikhail-Arkhipov.r",
+        "GrapeCity.gc-excelviewer",
+        "ms-python.autopep8",
+        "ms-python.python",
+        "ms-python.debugpy",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.datawrangler",
         "mechatroner.rainbow-csv"
     ]
 }

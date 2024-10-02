@@ -50,6 +50,8 @@ The exercise classes require a minimal software setup:
 
     `{python} cs['githubHttps']`
 
-    in the field and press enter. Choose a folder where you want to clone (basically this will copy the files from GitHub) the repository and press enter.
+    in the field and press enter. Choose a folder where you want to clone (basically this will copy the files from GitHub) the repository and press enter. VSC will prompt you to open the folder, so press enter again. You will see another dialog box asking you whether you trust the authors of the repository, which you should confirm. It will also ask you whether you want it to install the recommended extensions, which you should also confirm.
 
-6. 
+6. When VSC opens the repository, you should associate it with a Python installation. Press `Ctrl+Shift+P` again and type `Python: Create Environment`. Choose to create a conda environment and select the Python 3.11 interpreter. This will create a new environment in the folder `.conda` in the repository.
+
+7. Open a Jupyter notebook by clicking on one of the `.ipynb` files in (look at the left side of the VSC window which shows you the files in the folder). 

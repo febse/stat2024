@@ -55,3 +55,14 @@ libs/
 /02-Descriptive-Statistics-Exercise_files
 homework-grades-1717419263.csv
 /student_repos
+
+# Ignore Python files
+
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pyz.d
+*.pyw.d
