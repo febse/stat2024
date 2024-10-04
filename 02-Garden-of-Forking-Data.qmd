@@ -1,33 +1,63 @@
 # The Garden of Forking Data
 
-
 ```{ojs}
-//| echo: false
 gardenOfForkingData()
 ```
 
 ```{ojs}
 //| echo: false
-viewof evidenceSequence = slider({
+viewof evidenceSize = slider({
   min: 0, 
   max: 4, 
-  step: 1, 
-  value: 3, 
-  title: "sequence of draws ",
+  step: 1,
+  value: 3,
+  title: "Evidence Length",
 })
 ```
 
-```{ojs}
-//| echo: false
-viewof conjecture_input = Inputs.checkbox(["blue", "blue", "blue", "blue"], {label: "Evidence"})
-conjectures = [conjecture_input.map((c, i) => c == "blue" ? 1 : 0)]
-```
 
 ```{ojs}
 //| echo: false
-viewof evidenceInput = Inputs.checkbox(["blue", "white", "white"], {label: "Evidence"})
-evidence = evidenceInput.map((c, i) => c == "blue" ? 1 : 0)
+viewof conjectureSize = slider({
+  min: 2, 
+  max: 5, 
+  step: 1,
+  value: 4, 
+  title: "Conjecture Size",
+})
 ```
+
+
+```{ojs}
+//| echo: false
+viewof conjectureBlues = slider({
+  min: 1, 
+  max: conjectureSize, 
+  step: 1,
+  value: 4, 
+  title: "Conjecture Blues",
+})
+conjectures = [buildConjectures({blue: conjectureBlues, white: conjectureSize - conjectureBlues})]
+```
+
+```{ojs}
+{
+
+
+  // a return statement makes this block a function with output
+  return conjectureInput;
+}
+```
+
+
+```{ojs}
+//| echo: false
+// viewof evidenceInput = Inputs.checkbox(Array(evidenceSize).fill("Blue"), {label: "Evidence"})
+// evidence = evidenceInput.map((c, i) => c == "Blue" ? 1 : 0)
+evidence = [1, 0, 1]
+evidenceSequence = 3
+```
+
 
 ```{ojs}
 //| echo: false
@@ -103,8 +133,6 @@ gardenOfForkingData = function() {
   return ctx.canvas;
 }
 
-
-
 inlineDraw = function(data, width = 70) {
    let ctx = DOM.context2d(width, 20);    
     let r = 5;
@@ -120,10 +148,7 @@ inlineDraw = function(data, width = 70) {
   return ctx.canvas;
 }
 
-import {slider} from "@jashkenas/inputs";
-```
-
-conjecture = function({blue = 1, white = 3}) {
+buildConjectures = function({blue = 1, white = 3}) {
     let slots = new Array(blue + white);
     slots.fill(0);
     Array.from(Array(blue).keys()).forEach(blue => {
@@ -136,3 +161,8 @@ conjecture = function({blue = 1, white = 3}) {
     );
     return slots;
 }
+
+
+import {slider} from "@jashkenas/inputs";
+```
+
