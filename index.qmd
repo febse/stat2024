@@ -2,6 +2,7 @@
 
 ```{python}
 #| echo: false
+from IPython.display import Markdown
 from utils.settings import get_settings
 from utils.qr_code import create_qr_code
 
@@ -50,11 +51,10 @@ The recommended way to run the notebooks is Google Colab. However, if you prefer
 :::{.callout-note collapsed="true"}
 ## Windows: Using Installers
 
-1. Install Git for you operating system from [https://git-scm.com/downloads/](https://git-scm.com/downloads).
+1. Install Git for you operating system from [https://git-scm.com/downloads/](https://git-scm.com/downloads). During the installation, leave the default options.
+2. Install `miniconda` from [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html). Again, do not change the default options unless you know what you are doing.
+3. Install Visual Studio Code (VSC) from [https://code.visualstudio.com/](https://code.visualstudio.com/). Once more, install with the default options.
 
-3. Install Visual Studio Code (VSC) from [https://code.visualstudio.com/](https://code.visualstudio.com/)
-
-4. Install `miniconda` from [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
 
 :::
 
@@ -67,18 +67,24 @@ The recommended way to run the notebooks is Google Colab. However, if you prefer
 
     ```{cmd}
     @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+    choco install git vscode miniconda3    
     ```
-3. Close the `Command Prompt` and open it again as administrator.
-4. Copy and paste the following command and press enter:
 
-    ```{cmd}
-    choco install git vscode miniconda3
-    refreshenv
-    ```
+This will install Chocolatey, Git, Visual Studio Code, and Miniconda 3.
+
+In case you have any issues, please refer to the [Chocolatey installation instructions](https://chocolatey.org/install).
 :::
 
-Open the command promt (cmd) and type
+After installing the software, you can open a terminal (you don't need administrative privileges at this point) and run the following command:
 
-```{cmd}
-%USERPROFILE%\miniconda3\Scripts\conda.exe env create -f environment.yml
-```
+git clone `{python} cs['githubHttps']` %userprofile%
+
+This will clone the repository to your user profile folder (you can move it to another location afterwards or clone it directly to the desired location by replacing `%userprofile%` with the desired path).
+
+Open VSC and click on `File` -> `Open Folder` and select the folder where you cloned the repository. Wait for
+VSC to load.
+
+- It will ask you whether you trust the authors of the repository. Click on `Trust the authors`.
+- A notification will appear at the bottom right corner of the screen asking you to install the recommended extensions. Click on `Install`.
+- Press `Ctrl+Shift+P` and type `Python: Create Environment`. Select the `.conda` option, then select `Python 3.12` from the dropdown menu. This will create a new folder called `.conda` in the repository folder and will install the python packages listed in the `environment.yml` file.
+- Open one of the `.ipynb` files in the repository, click on `Select Kernel` button (top right of the notebook window) then choose `Python Environments` from the dropdown and select the `.conda` environment.

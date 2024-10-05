@@ -15,6 +15,17 @@ viewof evidenceSize = slider({
 })
 ```
 
+```{ojs}
+//| echo: false
+viewof evidenceBlues = slider({
+  min: 0,
+  max: evidenceSize,
+  step: 1,
+  value: 3,
+  title: "Evidence Blues",
+})
+```
+
 
 ```{ojs}
 //| echo: false
@@ -41,22 +52,17 @@ conjectures = [buildConjectures({blue: conjectureBlues, white: conjectureSize - 
 ```
 
 ```{ojs}
-{
-
-
-  // a return statement makes this block a function with output
-  return conjectureInput;
-}
-```
-
-
-```{ojs}
 //| echo: false
 // viewof evidenceInput = Inputs.checkbox(Array(evidenceSize).fill("Blue"), {label: "Evidence"})
 // evidence = evidenceInput.map((c, i) => c == "Blue" ? 1 : 0)
-evidence = [1, 0, 1]
+evidence = buildConjectures({blue: evidenceBlues, white: evidenceSize - evidenceBlues})
 evidenceSequence = 3
 ```
+
+A sequence of 3 marbles is pulled from the bag, one at a time, replacing the marble each time and shaking the bag before drawing another marble. <br/>
+The sequence that emerges is: ${inlineDraw(evidence)}
+
+The conjecture is that the bag contains ${conjectureBlues} blue marbles and ${conjectureSize - conjectureBlues} white marbles: ${inlineDraw(conjectures[0])}
 
 
 ```{ojs}
@@ -133,8 +139,8 @@ gardenOfForkingData = function() {
   return ctx.canvas;
 }
 
-inlineDraw = function(data, width = 70) {
-   let ctx = DOM.context2d(width, 20);    
+inlineDraw = function(data, width = 100) {
+   let ctx = DOM.context2d(width, 20);
     let r = 5;
   data.forEach((d, i) => {
       ctx.strokeStyle = "gray";
@@ -165,4 +171,3 @@ buildConjectures = function({blue = 1, white = 3}) {
 
 import {slider} from "@jashkenas/inputs";
 ```
-

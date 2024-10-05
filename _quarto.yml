@@ -9,8 +9,9 @@ book:
   chapters:
     - index.qmd
     - 01-Introduction.ipynb
-    - 02-Garden-of-Forking-Data.qmd
+#    - 02-Garden-of-Forking-Data.qmd
     - references.qmd
+  # google-analytics: "G-EK42ND3YYR"
 
 bibliography: references.bib
 

@@ -1,0 +1,144 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# Setup {.unnumbered}\n"
+      ],
+      "id": "d0eb5722"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "from IPython.display import Markdown\n",
+        "from utils.settings import get_settings\n",
+        "from utils.qr_code import create_qr_code\n",
+        "\n",
+        "cs = get_settings()"
+      ],
+      "id": "5d5962bb",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::{.callout-note}\n",
+        "## Website URL\n",
+        "\n",
+        "[`{python} cs['url']`](`{python} cs['url']`){style=\"font-size:2em; margin-left: 1em;\"}\n"
+      ],
+      "id": "a22ad024"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "#| echo: false\n",
+        "display(create_qr_code(cs['url']))"
+      ],
+      "id": "8c3eda4c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        ":::\n",
+        "\n",
+        "## Schedule\n",
+        "\n",
+        "1.  Wed 9:30-11:00 in room 520\n",
+        "2.  Wed 12:15-14:00 in room 215k\n",
+        "\n",
+        "## Grading\n",
+        "\n",
+        "TBA\n",
+        "\n",
+        "## GitHub Repository\n",
+        "\n",
+        "All course materials for the exercise classes will be available in the GitHub repository:\n",
+        "\n",
+        "[`{python} cs['github']`](`{python} cs['github']`)\n",
+        "\n",
+        "## GitHub Account\n",
+        "\n",
+        "Open a GitHub account at <https://github.com/signup>. While you don't need an account to download the course materials, you will need one to receive and submit assignments (this will be explained in details during the exercise classes). You can also apply for the GitHub student benefits at <https://education.github.com/benefits>. If approved you can receive free access to the GitHub Pro plan and to GitHub Copilot, an AI tool that helps you write code.\n",
+        "\n",
+        "\n",
+        "## Google Account\n",
+        "\n",
+        "We will be using Python through Jupyter notebooks in the exercise classes. The recommended way to work on the exercises is to use Google Colab, a cloud service that allows you to run Python code in the browser (and includes a generous free tier). You will need a Google account to use Google Colab. If you don't have one, you can create one at <https://accounts.google.com/signup>.\n",
+        "\n",
+        "## Local Software Setup (Optional)\n",
+        "\n",
+        "The recommended way to run the notebooks is Google Colab. However, if you prefer to work locally, you will need to install a recent version of Python (3.7 or later) and the dependencies listed in the `environment.yml` file in the GitHub repository.\n",
+        "\n",
+        ":::{.callout-note collapsed=\"true\"}\n",
+        "## Windows: Using Installers\n",
+        "\n",
+        "1. Install Git for you operating system from [https://git-scm.com/downloads/](https://git-scm.com/downloads). During the installation, leave the default options.\n",
+        "2. Install `miniconda` from [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html). Again, do not change the default options unless you know what you are doing.\n",
+        "3. Install Visual Studio Code (VSC) from [https://code.visualstudio.com/](https://code.visualstudio.com/). Once more, install with the default options.\n",
+        "\n",
+        "\n",
+        ":::\n",
+        "\n",
+        "\n",
+        ":::{.callout-note collapsed=true}\n",
+        "## Windows: Using Chocolatey\n",
+        "\n",
+        "1. Click on the Windows start button and type `cmd`. Right-click on the `Command Prompt` and select `Run as administrator`.\n",
+        "2. Copy and paste the following command and press enter:\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "    ```{cmd}\n",
+        "    @\"%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command \"iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))\" && SET \"PATH=%PATH%;%ALLUSERSPROFILE%\\chocolatey\\bin\"\n",
+        "    choco install git vscode miniconda3    \n",
+        "    ```\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "This will install Chocolatey, Git, Visual Studio Code, and Miniconda 3.\n",
+        "\n",
+        "In case you have any issues, please refer to the [Chocolatey installation instructions](https://chocolatey.org/install).\n",
+        ":::\n",
+        "\n",
+        "After installing the software, you can open a terminal (you don't need administrative privileges at this point) and run the following command:\n",
+        "\n",
+        "git clone `{python} cs['githubHttps']` %userprofile%\n",
+        "\n",
+        "This will clone the repository to your user profile folder (you can move it to another location afterwards or clone it directly to the desired location by replacing `%userprofile%` with the desired path).\n",
+        "\n",
+        "Open VSC and click on `File` -> `Open Folder` and select the folder where you cloned the repository. Wait for\n",
+        "VSC to load.\n",
+        "\n",
+        "- It will ask you whether you trust the authors of the repository. Click on `Trust the authors`.\n",
+        "- A notification will appear at the bottom right corner of the screen asking you to install the recommended extensions. Click on `Install`.\n",
+        "- Press `Ctrl+Shift+P` and type `Python: Create Environment`. Select the `.conda` option, then select `Python 3.12` from the dropdown menu. This will create a new folder called `.conda` in the repository folder and will install the python packages listed in the `environment.yml` file.\n",
+        "- Open one of the `.ipynb` files in the repository, click on `Select Kernel` button (top right of the notebook window) then choose `Python Environments` from the dropdown and select the `.conda` environment."
+      ],
+      "id": "217bc099"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/home/amarov/anaconda3/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
