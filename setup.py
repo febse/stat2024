@@ -1,7 +1,7 @@
+import yaml
+from utils import create_qr_code
 
-from utils.qr_code import create_qr_code
-from utils.settings import get_settings
-
-cs = get_settings()
-qr_img = create_qr_code(cs['url'])
-qr_img.save('figures/qr_code.png')
+with open('_variables.yml', 'r') as file:        
+    cs = yaml.load(file)
+    qr_img = create_qr_code(cs['url'])
+    qr_img.save('figures/qr_code.png')
