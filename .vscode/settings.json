@@ -5,5 +5,6 @@
         "Boyko",
         "scatterplot",
         "steelblue"
-    ]
+    ],
+    "git.autofetch": true,
 }
