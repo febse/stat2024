@@ -33,6 +33,8 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
 
       - name: Render Quarto
+        env: 
+          QUARTO_PROFILE: production
         run: quarto render .
 
       - name: Upload artifact
