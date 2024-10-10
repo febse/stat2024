@@ -9,7 +9,8 @@ book:
   chapters:
     - index.qmd
     - 01-Introduction.ipynb
-    - 02-Probability.ipynb
+    - 02-Descriptive-Statistics.ipynb
+    - 03-Probability.ipynb
 #    - 02-Garden-of-Forking-Data.qmd
     - references.qmd
 
