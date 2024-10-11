@@ -1,0 +1,8 @@
+book:
+  chapters:
+    - index.qmd
+    - 01-Introduction.ipynb
+    - 02-Descriptive-Statistics.ipynb
+    - 03-Probability.ipynb
+    - 04-Combinatorics.ipynb
+    - references.qmd
