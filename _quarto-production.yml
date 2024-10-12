@@ -3,9 +3,19 @@ book:
   cookie-consent: true
   chapters:
     - index.qmd
-    - 01-Introduction.ipynb
-    - 02-Descriptive-Statistics.ipynb
+    parts:
+      - title: "Introduction"
+        chapters:
+          - 01-Introduction.ipynb
+    parts:
+      - title: "Probability"
+        chapters:          
+          - 02-Descriptive-Statistics.ipynb
+          # - 03-Probability.ipynb
+          # - 04-Combinatorics.ipynb
+    # - 01-Introduction.ipynb
+    # - 02-Descriptive-Statistics.ipynb
     # - 03-Probability.ipynb
     # - 04-Combinatorics.ipynb 
 #    - 02-Garden-of-Forking-Data.qmd
-    - references.qmd  
+    - references.qmd
