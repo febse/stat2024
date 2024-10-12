@@ -1,18 +1,21 @@
 # The Garden of Forking Data
 
 ```{ojs}
+//| echo: false
+
 gardenOfForkingData()
 ```
 
 ```{ojs}
 //| echo: false
-viewof evidenceSize = slider({
-  min: 0, 
-  max: 4, 
-  step: 1,
-  value: 3,
-  title: "Evidence Length",
-})
+// viewof evidenceSize = slider({
+//   min: 0, 
+//   max: 4, 
+//   step: 1,
+//   value: 3,
+//   title: "Evidence Length",
+// })
+evidenceSize = 3
 ```
 
 ```{ojs}
