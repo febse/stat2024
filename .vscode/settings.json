@@ -2,10 +2,16 @@
     "cSpell.words": [
         "Amarov",
         "ANOVA",
+        "axvline",
         "Boyko",
+        "countplot",
+        "histplot",
         "multinomial",
+        "quantile",
         "scatterplot",
-        "steelblue"
+        "steelblue",
+        "xlabel",
+        "ylabel"
     ],
     "git.autofetch": true,
 }
