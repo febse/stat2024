@@ -12,4 +12,6 @@ dependencies:
   - seaborn
   - yaml
   - qrcode
+  - notebook
+  - statsmodels
 prefix: /home/amarov/anaconda3/envs/stat2024

@@ -19,3 +19,6 @@ editor: visual
 
 profile:
   default: development
+
+execute: 
+  enabled: true
