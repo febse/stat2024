@@ -13,6 +13,9 @@ book:
         - 00-Garden-of-Forking-Data.qmd
         - 04-Counting.ipynb
         - 05-Conditional-Probability.ipynb
+        - 06-Random-Variables.ipynb
+        - 07-Distribution-Functions.ipynb
+        - 08-Moments.ipynb
         # - 03-Probability.ipynb
         # - 04-Combinatorics.ipynb
     # - 01-Introduction.ipynb
