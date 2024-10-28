@@ -14,4 +14,5 @@ dependencies:
   - qrcode
   - notebook
   - statsmodels
+  - sympy
 prefix: /home/amarov/anaconda3/envs/stat2024
