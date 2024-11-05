@@ -69,3 +69,7 @@ __pycache__/
 *.pyz
 *.pyz.d
 *.pyw.d
+
+/.conda/
+/.venv/
+/venv/

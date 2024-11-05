@@ -17,4 +17,5 @@
         "ylabel"
     ],
     "git.autofetch": true,
+    "workbench.colorTheme": "Visual Studio Light",
 }
