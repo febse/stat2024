@@ -6,7 +6,7 @@ book:
     - part: "Introduction"      
       chapters:
         - 01-Introduction.ipynb
-        - 02-Descriptive-Statistics.ipynb
+        - 02-Data-Summaries.ipynb
     - part: "Probability"
       chapters:          
         - 03-Probability.ipynb
