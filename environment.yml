@@ -2,17 +2,15 @@ name: stat2024
 channels:
   - defaults
 dependencies:
-  - python=3.12
   - jupyter
   - matplotlib
   - numpy
   - pandas
+  - python=3.12
+  - qrcode
   - scikit-learn
   - scipy
   - seaborn
   - yaml
-  - qrcode
-  - notebook
-  - statsmodels
-  - sympy
+  - nltk
 prefix: /home/amarov/anaconda3/envs/stat2024
