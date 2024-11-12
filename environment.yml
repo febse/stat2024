@@ -13,4 +13,5 @@ dependencies:
   - seaborn
   - yaml
   - nltk
+  - sympy
 prefix: /home/amarov/anaconda3/envs/stat2024
