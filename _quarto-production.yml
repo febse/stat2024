@@ -16,6 +16,9 @@ book:
         - 05-Conditional-Probability.ipynb
         - 06-Discrete-Random-Variables.ipynb
         - 07-Moments-Discrete-Distributions.ipynb
+        - 08-Bi-variate-Discrete-Distributions.ipynb
+        - 09-Important-Discrete-Distributions.ipynb
+        - 10-Continuous-Distributions.ipynb
         # - 06-Random-Variables.ipynb
         # - 07-Distribution-Functions.ipynb
         - 08-Moments.ipynb
