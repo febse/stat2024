@@ -10,16 +10,13 @@ book:
         - 03-Probability.ipynb
         - 00-Garden-of-Forking-Data.qmd
         - 04-Counting-Things.ipynb
-        - 05A-Simulation-Exercises.ipynb
+        - 04A-Simulation-Exercises.ipynb
         - 05-Conditional-Probability.ipynb
-        # - 06-Random-Variables.ipynb
-        # - 07-Distribution-Functions.ipynb
-        - 08-Moments.ipynb
-        # - 03-Probability.ipynb
-        # - 04-Combinatorics.ipynb
-    # - 01-Introduction.ipynb
-    # - 02-Descriptive-Statistics.ipynb
-    # - 03-Probability.ipynb
-    # - 04-Combinatorics.ipynb 
-#    - 02-Garden-of-Forking-Data.qmd
+        - 06-Discrete-Random-Variables.ipynb
+        - 07-Moments-Discrete-Distributions.ipynb
+        - 08-Bi-variate-Discrete-Distributions.ipynb
+        # - 09-Properties-Expectation-Variance.ipynb
+        - 10-Important-Discrete-Distributions.ipynb
+        - 11-Continuous-Distributions.ipynb
+        - 12-Estimation.ipynb
     - references.qmd
