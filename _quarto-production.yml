@@ -17,7 +17,7 @@ book:
         - 06-Discrete-Random-Variables.ipynb
         - 07-Moments-Discrete-Distributions.ipynb
         - 08-Bi-variate-Discrete-Distributions.ipynb
-        - 09-Properties-Expectation-Variance.ipynb
+        # - 09-Properties-Expectation-Variance.ipynb
         - 10-Important-Discrete-Distributions.ipynb
         - 11-Continuous-Distributions.ipynb
         - 12-Estimation.ipynb
