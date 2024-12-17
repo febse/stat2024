@@ -21,6 +21,7 @@ book:
         - 10-Important-Discrete-Distributions.ipynb
         - 11-Continuous-Distributions.ipynb
         - 12-Estimation.ipynb
+        - 13-Sample-Exam.ipynb
         # - 06-Random-Variables.ipynb
         # - 07-Distribution-Functions.ipynb
         # - 08-Moments.ipynb
